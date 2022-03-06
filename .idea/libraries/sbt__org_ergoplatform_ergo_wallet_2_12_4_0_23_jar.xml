@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="sbt: org.ergoplatform:ergo-wallet_2.12:4.0.23:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/org/ergoplatform/ergo-wallet_2.12/4.0.23/ergo-wallet_2.12-4.0.23.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/org/ergoplatform/ergo-wallet_2.12/4.0.23/ergo-wallet_2.12-4.0.23-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/org/ergoplatform/ergo-wallet_2.12/4.0.23/ergo-wallet_2.12-4.0.23-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
