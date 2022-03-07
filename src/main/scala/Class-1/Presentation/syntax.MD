@@ -100,10 +100,10 @@ that the transaction was authorized by you.
 }
 ```
 
-Now you've seen the basics, for the end of class, lets look at a simple ErgoScript contract, the pin-lock
+Now you've seen the basics, for the end of this section, lets look at a simple ErgoScript contract, the pin-lock
 we mentioned earlier
 
-### Pinlock Contract
+### Pin-lock Contract
 ```scala
 {
   sigmaProp( INPUTS(0).R4[Coll[Byte]].get == blake2b256(OUTPUTS(0).R4[Coll[Byte]].get) )
@@ -113,12 +113,12 @@ Don't worry if you don't understand the functions used here, these are global fu
 get into in the next section.
 What's happening here is this:
 
-We may spend Input 0 of this transaction if and only if there exists an output whose R4 (register 4)
+We may spend Input 0 of this transaction if and only if there exists an output whose `R4` (register 4)
 contains the hash of the collection of bytes found in R4 of the Input.
-This contract refers to itself as INPUTS(0),
+This contract refers to itself as `INPUTS(0)`,
 for a more clear example, look at the following, where the box being spent refers to itself within its own contract:
 
-### Pinlock Contract (with SELF)
+### Pin-lock Contract (with SELF)
 ```scala
 {
   sigmaProp( SELF.R4[Coll[Byte]].get == blake2b256(OUTPUTS(0).R4[Coll[Byte]].get) )
