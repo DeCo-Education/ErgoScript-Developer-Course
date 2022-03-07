@@ -100,6 +100,21 @@ that the transaction was authorized by you.
 }
 ```
 
+### SigmaProp Operations
+Much like booleans, you may use logical operations on SigmaProps in order to build more complex spending logic
+for your contract
+
+```scala
+{
+  val enoughERG = INPUTS(0).value > 1000000
+  val myPK = PK("9etXmP7D3ZkWssDopWcWkCPpjn22RVuEyXoFSbVPWAvvzDbcDXE")
+  
+  sigmaProp(enoughERG) || myPK // What does this contract do? Under what conditions could such a contract be spent?
+}
+```
+
+You can see in the above contract that usage of `||` actually creates two spending paths for the given contract.
+
 Now you've seen the basics, for the end of this section, lets look at a simple ErgoScript contract, the pin-lock
 we mentioned earlier
 
