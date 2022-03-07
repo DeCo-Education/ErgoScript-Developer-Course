@@ -90,7 +90,7 @@
 }
 
 // Don't worry if you don't understand the functions used here, these are global functions that we will
-// get into in the next class.
+// get into in the next section.
 // What's happening here is this:
 // We may spend Input 0 of this transaction if and only if there exists an output whose R4 (register 4)
 // contains the hash of the collection of bytes found in R4 of the Input.
