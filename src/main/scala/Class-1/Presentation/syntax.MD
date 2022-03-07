@@ -33,7 +33,7 @@
 ```
   ErgoScript is based off of scala, which brings means we have some standard functional programming methods and syntax
 ```scala
-  val myMap: Coll[(Int, Long)] = {      // Wrap this val statement into a function that returns a collection of integers that map to longs
+  val myMap: Coll[(Int, Long)] = {      // Wrap this val statement into a function that returns a collection of integers paired with longs
     val intCollection = Coll(0, 1, 2)
     intCollection.map{                  // Use the map function, a standard FP method that iterates through the entire
       (myInt: Int) =>                   // collection and inputs each element through a function to return a collection of outputs.
