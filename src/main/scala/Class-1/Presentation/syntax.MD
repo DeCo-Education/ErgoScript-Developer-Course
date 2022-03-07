@@ -1,5 +1,5 @@
 
-  #Basic Syntax In ErgoScript
+  # Basic Syntax In ErgoScript
   ```scala
   val bool: Boolean = true
   ```
@@ -15,9 +15,9 @@
 
   ErgoScript is strongly typed, you should always know what types you are dealing with
 
-  ####Learn to think in true and false statements, booleans (More specifically, Sigma Propositions) are the core of every ErgoScript contract
+  #### Learn to think in true and false statements, booleans (More specifically, Sigma Propositions) are the core of every ErgoScript contract
 
-  ##More ErgoScript Syntax Examples:
+  ## More ErgoScript Syntax Examples:
 ```scala
   if(bool == true){
     val x = 0
@@ -43,7 +43,7 @@
     }                                   // We do not need to specify the return value with a keyword
   }
 ```
-  ###Def vs Val?
+  ### Def vs Val?
 
 ```scala
 
@@ -61,7 +61,7 @@
   initializes itself to be run. `def` statements are instead calculated whenever the call is made.
   In most instances, you will likely use val statements
 
-  ##Sigma Propositions
+  ## Sigma Propositions
   Sigma Propositions are the core of every single ErgoScript contract
   SigmaProps represent some conditions about the transaction that must be met in order to spend a certain box.
   They are quite similar to booleans, in that they may be reduced into two values, `true` or `false`.
@@ -74,7 +74,7 @@ contract should affect the outcome of your Sigma Proposition in some way.
 
   SigmaProps come in a few different forms, but there are two main ways you will see them in ErgoScript contracts.
 
-###SigmaProps From Booleans
+### SigmaProps From Booleans
 You may create SigmaProps from booleans using the `sigmaProp` function. This
 allows you to define arbitrary spending conditions for any contract.
 ```scala
@@ -84,7 +84,7 @@ allows you to define arbitrary spending conditions for any contract.
                         // What would this contract evaluate to?
 }
 ```
-###SigmaProps From Public Keys
+### SigmaProps From Public Keys
 Public Keys (Essentially, the part of your address that makes it different from everyone else's)
 are also SigmaProps. When a public key is passed as a SigmaProp, your contract checks whether or
 not the given PK is the one that signed the transaction
@@ -103,7 +103,7 @@ that the transaction was authorized by you.
 Now you've seen the basics, for the end of class, lets look at a simple ErgoScript contract, the pin-lock
 we mentioned earlier
 
-###Pinlock Contract
+### Pinlock Contract
 ```scala
 {
   sigmaProp( INPUTS(0).R4[Coll[Byte]].get == blake2b256(OUTPUTS(0).R4[Coll[Byte]].get) )
@@ -118,7 +118,7 @@ contains the hash of the collection of bytes found in R4 of the Input.
 This contract refers to itself as INPUTS(0),
 for a more clear example, look at the following, where the box being spent refers to itself within its own contract:
 
-###Pinlock Contract (with SELF)
+### Pinlock Contract (with SELF)
 ```scala
 {
   sigmaProp( SELF.R4[Coll[Byte]].get == blake2b256(OUTPUTS(0).R4[Coll[Byte]].get) )
