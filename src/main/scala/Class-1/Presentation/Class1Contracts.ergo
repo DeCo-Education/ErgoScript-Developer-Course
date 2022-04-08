@@ -1,0 +1,32 @@
+{
+  //  val mySigmaProp: SigmaProp = sigmaProp(1 == 1) // sigmaProp function takes a boolean value, and converts it into a sigma prop
+  // Contract: Box may be spent if both outputs are of equal value
+
+//  val thisBox: Box = SELF
+//  val inputOne: Box = INPUTS(0) // Coll[Box] // INPUTS(0) == SELF
+
+
+  val outputOne: Box = OUTPUTS(0) // Coll[Box]
+  val outputTwo: Box = OUTPUTS(1)
+
+  val areOutputsEqual = outputOne.value == outputTwo.value
+
+  sigmaProp(areOutputsEqual)
+
+}
+
+// Contract: Box is signed by Cheesy's PK and outputs are equal
+{
+  val outputOne: Box = OUTPUTS(0) // Coll[Box]
+  val outputTwo: Box = OUTPUTS(1)
+  val areOutputsEqual = outputOne.value == outputTwo.value
+  val signerIsCheese: SigmaProp = PK("9fq4Ha1xKGpGsg8e11wD6q7fCU4BQHYb34vqEBVQwp3cgoneEHA")
+  // This SigmaProp evaluates to true if the signer of the box is the address: 9fq4Ha1xKGpGsg8e11wD6q7fCU4BQHYb34vqEBVQwp3cgoneEHA
+
+  sigmaProp(areOutputsEqual) && signerIsCheese
+
+}
+
+{ // Contract: Changeable
+
+}

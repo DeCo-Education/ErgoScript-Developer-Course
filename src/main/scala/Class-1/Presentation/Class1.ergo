@@ -1,0 +1,83 @@
+{
+ val bools: Boolean = true
+
+ if(true){
+  val num = 1
+  val num2 = 1 + 2
+  val num4 = num * num1
+  val bool = true
+  val bool2 = false
+  val bool3 = bool && bool2
+ }
+
+ val long: Long = 10000000L
+
+ val byte: Byte = 1 // -127 - 128
+ val bigInt: BigInt = 1000000000000000000000
+
+ val coll: Coll[Int] = Coll(1, 2, 3)
+
+ val appendedColl: Coll[Int] = coll.append(1) // Coll(1,2,3,1)
+
+ val goThroughEachElem = {
+  val newColl = appendedColl.map{
+    (elem: Int) =>
+    elem + 1
+  }
+ }
+
+
+ val pairs: (Int, Long) = (1, 100000L)
+
+ val pairOfBoxToLong: (Box, Long) = (INPUTS(0), 1000000L)
+ val boxInPair = pairOfBoxToLong._1
+ val longInPair = pairBoxToLong._2
+
+ val intInColl: Int = coll(0) // 1
+
+ val mapIntToBoolean: Coll[(Int, Long)] = Coll((1, 10000000L), (2, 100000000L), (3, 10000000L))
+
+ val nanoErg: Long = 1000L * 1000L * 1000L // 1.0 ERG
+ val inNanoErgs: Long = 123 * 10000000L // Double 1.23 ERG
+
+ val minInBox: Long = 1000L * 1000L
+ // 0.001 ERG
+
+ def addInputValues(numToAdd: Long): Long = {
+  INPUTS(0).value + numToAdd
+ }
+
+ val newLong: Long = 10000L
+
+ val longAdded: Long = newLong + addInputValues(100L)
+
+ val myLambda: Int = {
+  (inputBox: Box, secondParam: Int) =>
+  inputBox.value + secondParam
+ }
+
+ val newColl: Coll[Int] = coll.map{(x: Int) => x + 1} // (2, 3, 4)
+
+ val callOnLambda: Int = myLambda(INPUTS(0), 100)
+ val callOnLambda2: Int = myLambda(INPUTS(0), 200)
+
+ // Def statements are calculated when they're called
+ // val statements are calculated when the scope is entered.
+ val setScopeForLong: Long = {
+  val otherAmountToAdd: Long = 300L
+  100L + callOnLambda(INPUTS(0))
+ }
+
+ val isEqual: Boolean = 1 == 2
+
+
+ val setScopeForDef: Long = {
+  val otherAmountToAdd: Long = 300L
+  addInputValues(100L) + otherAmountToAdd
+ }
+
+ val mySigmaProp: SigmaProp = sigmaProp(1 == 1) // Sigma Prop actually is, the spending conditions that evaluate the box to true
+ mySigmaProp
+
+
+}

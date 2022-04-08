@@ -1,36 +1,5 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
-
-@K-Singh
-ScorexFoundation
-/
-sigmastate-interpreter
-Public
-Code
-Issues
-83
-Pull requests
-20
-Actions
-Projects
-Wiki
-Security
-Insights
-sigmastate-interpreter/docs/LangSpec.md
-@aslesarenko
-aslesarenko removed example usage of Option.isEmpty
-Latest commit 5212765 15 days ago
-History
-4 contributors
-@ergomorphic@aslesarenko@greenhat@kushti
-983 lines (829 sloc)  38.4 KB
-
 # ErgoScript Language Description
-
+(taken from ErgoPlatform Repo)
 ### Introduction
 
 ErgoScript is a language to write contracts for [Ergo
@@ -943,16 +912,3 @@ def substConstants[T](scriptBytes: Coll[Byte], positions: Coll[Int], newValues: 
 
 ## Examples
 
-See [white paper for examples](https://ergoplatform.org/docs/ErgoScript.pdf)
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
