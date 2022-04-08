@@ -377,18 +377,18 @@ It allows a contract to construct another contract’s propositional bytes using
 	// (*) Note: 
 	//           1. Mining fee box is always the last box in the set of OUTPUTS of a transaction,
 	//              I am just showing this for clarity, but it will not be accessed in this contract.
-    //           2. If there is any that change remains in the proxy, 
+    	//           2. If there is any that change remains in the proxy, 
 	//				it is sent back to the buyer wallet.
 
 	// Contract variables
-  val buyerPK: SigmaProp          = PK(buyerPKString)
+  	val buyerPK: SigmaProp          = PK(buyerPKString)
 	val buyerProxyInputs: Coll[Box] = INPUTS.filter({ (input: Box) => input.propositionBytes == SELF.propositionBytes })
 	val buyerAmount: Long           = buyerProxyInputs.fold(0L)({ (input: Box, acc: Long) => acc + input.value })
 	val provincialSalesTax: Long    = (AlcoholSaleAmount * ProvincialSalesTaxNum) / ProvincialSalesTaxDenom
 	val federalSalesTax: Long       = (AlcoholSaleAmount * FederalSalesTaxNum) / FederalSalesTaxDenom
 	val totalCost: Long             = AlcoholSaleAmount + provincialSalesTax + federalSalesTax + MinerFee
 	
-// Variables associated with the buyer's license
+	// Variables associated with the buyer's license
 	val license = INPUTS(0)
 	val id      = license.R4[Coll[Byte]].get
 	val name    = license.R5[Coll[Byte]].get
@@ -433,8 +433,8 @@ It allows a contract to construct another contract’s propositional bytes using
 		}
 
 		// Check for a valid proxy amount
-    val validProxyAmount = {
-	    buyerAmount >= totalAmount
+    		val validProxyAmount = {
+	    		buyerAmount >= totalAmount
 		}
 
 		// Check for a valid store
@@ -464,11 +464,11 @@ It allows a contract to construct another contract’s propositional bytes using
 				))
 			}
       
-      // Demand that both sales taxes are valid
-      allOf(Coll(
-        validProvincialSalesTax,
-        validFederalSalesTax
-      ))
+      			// Demand that both sales taxes are valid
+      			allOf(Coll(
+        			validProvincialSalesTax,
+        			validFederalSalesTax
+      			))
 
 		}
 
