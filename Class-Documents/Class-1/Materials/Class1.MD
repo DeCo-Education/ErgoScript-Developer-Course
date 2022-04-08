@@ -341,6 +341,7 @@ The `deserialize[T]` function takes a type parameter `T` along with a base58 enc
 ## Other Functions
 
 ### GetVar
+`getVar[T]` takes type parameter `T` along with some integer `tag` and returns some Context Variable with the given type that is associated with the given `tag`. Context Variables are specific off-chain variables that may be attached to any box at the time of transaction creation. Context variables allow for robust changes for certain parameters within your contract. It is especially useful for providing generic contracts that rely on off-chain information which may change between different spending transactions.
 
 ### SubstConstants
 
@@ -351,7 +352,6 @@ def substConstants[T](scriptBytes: Coll[Byte],
  positions: Coll[Int], newValues: Coll[T]): Coll[Byte]
 ```
 
-`getVar[T]` takes type parameter `T` along with some integer `tag` and returns some Context Variable with the given type that is associated with the given `tag`. Context Variables are specific off-chain variables that may be attached to any box at the time of transaction creation. Context variables allow for robust changes for certain parameters within your contract. It is especially useful for providing generic contracts that rely on off-chain information which may change between different spending transactions.
 
 It allows a contract to construct another contract’s propositional bytes using the given parameters. Because a contract’s address is created using its contents, inputting different constants within a contract can change it’s address(and therefore, the contract itself). This function allows for a contract of the same “template” to be created using a new set of constants. In order to be used properly, one must provide a sample of the contract’s propositional bytes(parameter `scriptBytes`), along with the `positions` at which certain constants of type `T` must be replaced with the values in the `newValues` parameter.
 
@@ -377,8 +377,8 @@ It allows a contract to construct another contract’s propositional bytes using
 	// (*) Note: 
 	//           1. Mining fee box is always the last box in the set of OUTPUTS of a transaction,
 	//              I am just showing this for clarity, but it will not be accessed in this contract.
-  //           2. If there is any that change remains in the proxy, 
-	//							it is sent back to the buyer wallet.
+    //           2. If there is any that change remains in the proxy, 
+	//				it is sent back to the buyer wallet.
 
 	// Contract variables
   val buyerPK: SigmaProp          = PK(buyerPKString)
