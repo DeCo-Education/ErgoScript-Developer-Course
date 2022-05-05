@@ -1,5 +1,8 @@
-/target/
+target
 .bsp
 .idea
 /Class-Documents/.DS_Store
 
+/target/
+/project/target/
+/project/project/target
